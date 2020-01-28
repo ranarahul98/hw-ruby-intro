@@ -32,7 +32,7 @@ def sum_to_n?(arr, n)
     if arr.length == 1
         return false
     end
-    return arr.combination(2).any? {|a,b| (a + b) == n}
+    return arr.combination(2).any? {|a,b| return true if a + b == n}
 end
 
 # Part 2
@@ -48,6 +48,7 @@ end
 
 def binary_multiple_of_4?(s)
     # https://stackoverflow.com/questions/19305067/regex-binary-multiple-of-4
+    # if binary ends with '00' it is a multiple of 4
     #make sure 0 case is considered
    return s =~ /^(0|[10]*00)$/
 end
