@@ -38,19 +38,34 @@ end
 # Part 2
 
 def hello(name)
-  # YOUR CODE HERE
+    return "Hello, " + name
 end
 
-def starts_with_consonant? s
-  # YOUR CODE HERE
+def starts_with_consonant?(s)
+    #regex equation to check for lowercase consonants
+    return s.downcase =~ /\A[b-df-hj-np-tv-z]/
 end
 
-def binary_multiple_of_4? s
-  # YOUR CODE HERE
+def binary_multiple_of_4?(s)
+    # https://stackoverflow.com/questions/19305067/regex-binary-multiple-of-4
+    #make sure 0 case is considered
+   return s =~ /^(0|[10]*00)$/
 end
 
 # Part 3
 
 class BookInStock
-# YOUR CODE HERE
+    attr_accessor :isbn, :price #initialize instance variables
+
+    def initialize(isbn, price)
+        raise ArgumentError if isbn.length == 0
+        raise ArgumentError if price <= 0
+        @isbn = isbn
+        @price = price
+    end
+
+    def price_as_string
+        #formatting string to display float with 2 decimal places
+        return "$%.2f" % @price
+    end
 end
